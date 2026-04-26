@@ -8,6 +8,8 @@ import RegisterPage from './pages/RegisterPage';
 import PropertiesPage from './pages/PropertiesPage';
 import PropertyDetailPage from './pages/PropertyDetailPage';
 import MyInquiriesPage from './pages/MyInquiriesPage';
+import SellerDashboard from './pages/SellerDashboard';
+import AddPropertyPage from './pages/AddPropertyPage';
 
 function App() {
   return (
@@ -25,6 +27,18 @@ function App() {
           <Route path="/my-inquiries" element={
             <ProtectedRoute allowedRoles={['BUYER']}>
               <MyInquiriesPage />
+            </ProtectedRoute>
+          } />
+
+          {/* Seller / Agent Protected */}
+          <Route path="/seller-dashboard" element={
+            <ProtectedRoute allowedRoles={['SELLER', 'AGENT']}>
+              <SellerDashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/seller/add-property" element={
+            <ProtectedRoute allowedRoles={['SELLER', 'AGENT']}>
+              <AddPropertyPage />
             </ProtectedRoute>
           } />
 

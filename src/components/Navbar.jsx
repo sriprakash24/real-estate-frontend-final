@@ -19,7 +19,12 @@ export default function Navbar() {
 
       <div className="nav-links">
         <Link to="/properties" className={isActive('/properties')}>Properties</Link>
-        {user && <Link to="/my-inquiries" className={isActive('/my-inquiries')}>My Inquiries</Link>}
+        {user?.role === 'BUYER' && (
+          <Link to="/my-inquiries" className={isActive('/my-inquiries')}>My Inquiries</Link>
+        )}
+        {(user?.role === 'SELLER' || user?.role === 'AGENT') && (
+          <Link to="/seller-dashboard" className={isActive('/seller-dashboard')}>Dashboard</Link>
+        )}
       </div>
 
       <div className="nav-links">

@@ -24,5 +24,11 @@ export const getFeaturedProperties = () => API.get('/properties/featured');
 // Inquiries
 export const submitInquiry = (data) => API.post('/inquiries', data);
 export const getBuyerInquiries = () => API.get('/inquiries/buyer');
+export const getSellerInquiries = () => API.get('/inquiries/seller');
+export const updateInquiryStatus = (id, status) => API.patch(`/inquiries/${id}/status`, null, { params: { status } });
+
+// Seller — Property Management
+export const addProperty = (data) => API.post('/properties', data);
+export const deleteProperty = (id) => API.delete(`/properties/${id}`);
 
 export default API;
