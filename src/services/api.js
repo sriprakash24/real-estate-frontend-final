@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  // baseURL: 'http://localhost:8080/api',
+  baseURL: 'https://real-es-backend-java-1.onrender.com/api',
 });
 
 // Attach JWT token to every request
